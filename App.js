@@ -1,20 +1,20 @@
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { useFonts } from 'expo-font';
 import AppLoading from 'expo-app-loading';
-import { useFonts } from 'expo-fonts';
+import ShopNavigator from './navigation/ShopNavigator';
 
 export default function App() {
+  const [loaded] = useFonts({
+    MontereyBold: require('./assets/fonts/MontereyFLF-Bold.ttf'),
+    MontereyBoldItalic: require('./assets/fonts/MontereyFLF-BoldItalic.ttf'),
+    MontereyItalic: require('./assets/fonts/MontereyFLF-Italic.ttf'),
+    Monterey: require('./assets/fonts/MontereyFLF.ttf'),
+    MontereyMedium: require('./assets/fonts/MontereyMediumFLF.ttf')
+  });
+
+  if(!loaded) return <AppLoading/>
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-    </View>
+    <ShopNavigator />
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
