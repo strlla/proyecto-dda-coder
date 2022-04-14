@@ -1,7 +1,7 @@
 import React from 'react';
 import { useFonts } from 'expo-font';
 import AppLoading from 'expo-app-loading';
-import ShopNavigator from './navigation/ShopNavigator';
+import LoginNavigator from './navigation/LoginNavigator';
 
 export default function App() {
   const [loaded] = useFonts({
@@ -15,6 +15,6 @@ export default function App() {
   if(!loaded) return <AppLoading/>
 
   return (
-    <ShopNavigator />
+    <LoginNavigator/>
   );
 }
