@@ -1,5 +1,7 @@
 import React from "react";
-import { View, TextInput } from "react-native";
+import { View, TextInput, Button } from "react-native";
+import inputStyles from "../../styles/textInput";
+import buttonStyles from "../../styles/button";
 
 function Login({ navigation }) {
   return (
@@ -17,8 +19,8 @@ function Login({ navigation }) {
           style={inputStyles.textInput}
         />
       </View>
-      <View style={styles.registerButtonContainer}>
-        <Button onPress={() => {}} title="Iniciar sesion" color="#6A23B0" />
+      <View style={buttonStyles.buttonContainer}>
+        <Button onPress={() => navigation.navigate("Root")} title="Iniciar sesion" color="#6A23B0" />
       </View>
     </View>
   );

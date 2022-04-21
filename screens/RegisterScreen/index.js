@@ -6,7 +6,7 @@ import buttonStyles from "../../styles/button";
 
 function Register({ navigation }) {
   return (
-    <View style={{ backgroundColor: "#FFFFFF" }}>
+    <View style={{ backgroundColor: "#FFFFFF", flex: 1 }}>
       <View style={inputStyles.textInputContainer}>
         <TextInput
           placeholder="Nombre"
@@ -28,7 +28,7 @@ function Register({ navigation }) {
         </View>
       </View>
       <View style={buttonStyles.buttonContainer}>
-        <Button onPress={() => {}} title="Registrarse" color="#6A23B0" />
+        <Button onPress={() => navigation.navigate("Root")} title="Registrarse" color="#6A23B0" />
       </View>
       <TouchableOpacity
         style={styles.haveAccountButtonStyle}
