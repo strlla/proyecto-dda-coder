@@ -9,7 +9,7 @@ function Register({ navigation }) {
     <View style={{ backgroundColor: "#FFFFFF", flex: 1 }}>
       <View style={inputStyles.textInputContainer}>
         <TextInput
-          placeholder="Nombre"
+          placeholder="Name"
           onChangeText={() => {}}
           style={inputStyles.textInput}
         />
@@ -20,7 +20,7 @@ function Register({ navigation }) {
             style={inputStyles.textInput}
           />
           <TextInput
-            placeholder="Contraseña"
+            placeholder="Password"
             secureTextEntry
             onChangeText={() => {}}
             style={inputStyles.textInput}
@@ -28,13 +28,13 @@ function Register({ navigation }) {
         </View>
       </View>
       <View style={buttonStyles.buttonContainer}>
-        <Button onPress={() => navigation.navigate("Root")} title="Registrarse" color="#6A23B0" />
+        <Button onPress={() => navigation.navigate("Root")} title="Register" color="#6A23B0" />
       </View>
       <TouchableOpacity
         style={styles.haveAccountButtonStyle}
         onPress={() => navigation.navigate("Login")}
       >
-        <Text style={styles.haveAccountTextStyle}>¿Ya tienes una cuenta?</Text>
+        <Text style={styles.haveAccountTextStyle}>Already have an account?</Text>
       </TouchableOpacity>
     </View>
   );

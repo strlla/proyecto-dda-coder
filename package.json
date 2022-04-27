@@ -24,7 +24,9 @@
     "react-native-safe-area-context": "3.3.2",
     "react-native-screens": "~3.10.1",
     "react-native-web": "0.17.1",
-    "react-navigation-tabs": "^2.11.2"
+    "react-navigation-tabs": "^2.11.2",
+    "react-redux": "^8.0.1",
+    "redux": "^4.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9"

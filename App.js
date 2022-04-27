@@ -2,6 +2,8 @@ import React from 'react';
 import { useFonts } from 'expo-font';
 import AppLoading from 'expo-app-loading';
 import LoginNavigator from './navigation/LoginNavigator';
+import { Provider } from 'react-redux';
+import store from './store';
 
 export default function App() {
   const [loaded] = useFonts({
@@ -15,6 +17,8 @@ export default function App() {
   if(!loaded) return <AppLoading/>
 
   return (
-    <LoginNavigator/>
+    <Provider store={store}>
+     <LoginNavigator/>
+    </Provider>
   );
 }

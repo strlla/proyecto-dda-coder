@@ -13,14 +13,14 @@ function Login({ navigation }) {
           style={inputStyles.textInput}
         />
         <TextInput
-          placeholder="Contraseña"
+          placeholder="Password"
           secureTextEntry
           onChangeText={() => {}}
           style={inputStyles.textInput}
         />
       </View>
       <View style={buttonStyles.buttonContainer}>
-        <Button onPress={() => navigation.navigate("Root")} title="Iniciar sesion" color="#6A23B0" />
+        <Button onPress={() => navigation.navigate("Root")} title="Login" color="#6A23B0" />
       </View>
     </View>
   );

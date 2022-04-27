@@ -1,11 +1,8 @@
 import React from "react";
-import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Home from "../screens/Home";
-import Categories from "../screens/Categories";
-import Ionicons from "react-native-vector-icons/Ionicons";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
-
+import BooksNavigator from "./BooksNavigator";
 const Tab = createBottomTabNavigator();
 
 const TabNavigator = () => {
@@ -20,6 +17,7 @@ const TabNavigator = () => {
           },
           null,
         ],
+        headerShown: false
       }}
     >
       <Tab.Screen
@@ -32,12 +30,20 @@ const TabNavigator = () => {
           ),
         }}
       />
-      <Tab.Screen name="Categorías" component={Categories}  options={{
+      <Tab.Screen
+        name="BooksStack"
+        component={BooksNavigator}
+        options={{
           tabBarLabel: "",
           tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="bookshelf" color={color} size={size} />
+            <MaterialCommunityIcons
+              name="bookshelf"
+              color={color}
+              size={size}
+            />
           ),
-        }} />
+        }}
+      />
     </Tab.Navigator>
   );
 };

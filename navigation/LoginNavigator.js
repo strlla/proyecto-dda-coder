@@ -1,19 +1,19 @@
 import React from "react";
-import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
+import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Home from "../screens/Home";
 import Login from "../screens/LoginScreen";
 import Register from "../screens/RegisterScreen";
 import TabNavigator from "./TabNavigator";
+import { MY_THEME } from "../assets/constants/theme";
 
 const Stack = createNativeStackNavigator();
-const MyTheme = {  ...DefaultTheme,  colors: {    ...DefaultTheme.colors,   background:'white'  },};
 
 const LoginNavigator = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        theme={MyTheme}
+        theme={MY_THEME}
         initialRouteName="Register"
       >
         <Stack.Screen name="Register" component={Register} options={{title: 'Register'}} /> 
