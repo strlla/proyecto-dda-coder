@@ -3,6 +3,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Home from "../screens/Home";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import BooksNavigator from "./BooksNavigator";
+import PlaceNavigator from "./PlaceNavigator";
 const Tab = createBottomTabNavigator();
 
 const TabNavigator = () => {
@@ -38,6 +39,20 @@ const TabNavigator = () => {
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons
               name="bookshelf"
+              color={color}
+              size={size}
+            />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="PlaceStack"
+        component={PlaceNavigator}
+        options={{
+          tabBarLabel: "",
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons
+              name="truck"
               color={color}
               size={size}
             />
