@@ -63,12 +63,12 @@ const LocationSelector = (props) => {
       <View style={styles.actions}>
         <Button
           color={COLORS.PURPLE}
-          title="Obtener Ubicacion"
+          title="Get location"
           onPress={handlerGeoLocation}
         />
         <Button
           color={COLORS.PURPLE}
-          title="Elegir del mapa"
+          title="Choose from map"
           onPress={handlerPickOnMap}
         />
       </View>
