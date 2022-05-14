@@ -16,17 +16,19 @@ import LocationSelector from "../../components/LocationSelector";
 const NewPlaceScreen = ({ navigation }) => {
   const dispatch = useDispatch();
   const [title, setTitle] = useState("");
-const [image, setImage] = useState("");
+  const [image, setImage] = useState("");
   const [location, setLocation] = useState("");
 
   const handlerTitleChange = (text) => setTitle(text);
-   const handlerImageChange = (img) => setImage(img);
+  const handlerImageChange = (img) => setImage(img);
   const handlerLocation = (loc) => setLocation(loc);
-  const handlerSave = () => {
-    dispatch(addPlace(title, image, location));
-    navigation.navigate("Direcciones");
-  };
 
+  const handlerSave = () => {
+    if (location) {
+      dispatch(addPlace(title, image, location));
+      // navigation.navigate("Direcciones");
+    }
+  };
 
   return (
     <ScrollView>
@@ -36,7 +38,7 @@ const [image, setImage] = useState("");
         <ImageSelector onImage={handlerImageChange} />
         <LocationSelector onLocation={handlerLocation} />
         <Button
-          title="Grabar Direccion"
+          title="Save direction"
           color={COLORS.PURPLE}
           onPress={handlerSave}
         />

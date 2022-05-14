@@ -19,8 +19,6 @@ export const addPlace = (title, image, location) => {
     const address = resData.results[0].formatted_address;
     console.log(address);
 
-    console.log("Dispatching...");
-
     const fileName = image.split("/").pop();
     const Path = FileSystem.documentDirectory + fileName;
 
@@ -29,20 +27,28 @@ export const addPlace = (title, image, location) => {
         from: image,
         to: Path,
       });
+      const result = await insertAddress(
+        title,
+        Path,
+        address,
+        location.lat,
+        location.lng
+      );
+
+      dispatch({
+        type: ADD_PLACE,
+        payload: {
+          id: result.insertId,
+          title,
+          address,
+          image: Path,
+          lat: location.lat,
+          lng: location.lng,
+        },
+      });
     } catch (err) {
       console.log(err);
       throw err;
     }
-
-    dispatch({
-      type: ADD_PLACE,
-      payload: {
-        title,
-        address,
-        image: Path,
-        lat: location.lat,
-        lng: location.lng,
-      },
-    });
   };
 };

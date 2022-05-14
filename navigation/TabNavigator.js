@@ -4,6 +4,7 @@ import Home from "../screens/Home";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import BooksNavigator from "./BooksNavigator";
 import PlaceNavigator from "./PlaceNavigator";
+
 const Tab = createBottomTabNavigator();
 
 const TabNavigator = () => {
