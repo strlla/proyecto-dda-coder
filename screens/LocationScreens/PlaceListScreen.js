@@ -1,36 +1,42 @@
-import React from 'react';
-import { FlatList, StyleSheet } from 'react-native';
-import { useSelector } from 'react-redux';
-import PlaceItem from '../../components/PlaceItem';
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { FlatList } from "react-native";
+import PlaceItem from "../../components/PlaceItem";
+import * as addressAction from "../../store/actions/places.actions";
 
-const PlaceListScreen = ({navigation}) => {
-    let places = useSelector(state => state.places);
+const PlaceListScreen = ({ navigation }) => {
+  const dispatch = useDispatch();
+  let places = useSelector((state) => state.places);
 
-    const renderItem = ({item}) => (
-        <PlaceItem
-            title={item.title}
-            image={item.image}
-            address={item.address}
-            onSelect={() => navigation.navigate('Detalle', {
-                placeID: item.id
-            })}
-        />
+  useEffect(() => {
+    dispatch(addressAction.loadPlaces());
+  }, []);
 
-    )
+  const handlerDelete = (id) => {
+    dispatch(addressAction.deletePlace(id));
+  };
 
-    return (
-        <FlatList
-            data={places.places}
-            keyExtractor={item => item.id}
-            renderItem={renderItem}
-        />
-    )
-}
+  const renderItem = ({ item }) => (
+    <PlaceItem
+      title={item.title}
+      image={item.image}
+      address={item.address}
+      onSelect={() =>
+        navigation.navigate("Detalle", {
+          placeID: item.id,
+        })
+      }
+      onDelete={() => handlerDelete(item.id)}
+    />
+  );
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1
-    }
-})
+  return (
+    <FlatList
+      data={places.places}
+      keyExtractor={(item) => item.id}
+      renderItem={renderItem}
+    />
+  );
+};
 
-export default PlaceListScreen
+export default PlaceListScreen;

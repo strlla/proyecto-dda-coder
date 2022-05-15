@@ -1,6 +1,10 @@
 import * as FileSystem from "expo-file-system";
 import { MAP } from "../../assets/constants/map";
+import { fetchAddress, insertAddress, deleteAddress } from "../../db";
+
 export const ADD_PLACE = "ADD_PLACE";
+export const LOAD_PLACES = "LOAD_PLACES";
+export const DELETE_PLACE = "DELETE_PLACE";
 
 export const addPlace = (title, image, location) => {
   return async (dispatch) => {
@@ -52,3 +56,25 @@ export const addPlace = (title, image, location) => {
     }
   };
 };
+
+export const loadPlaces = () => {
+  return async dispatch => {
+      try {
+          const result = await fetchAddress();
+          dispatch({type: LOAD_PLACES, places: result.rows._array });
+      }catch(err) {
+          throw err;
+      }
+  }
+}
+
+export const deletePlace = (id) => {
+  return async dispatch => {
+      try {
+          await deleteAddress(id);
+          dispatch({type: DELETE_PLACE, id});
+      } catch(err) {
+          throw err;
+      }
+  }
+} 
