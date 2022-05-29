@@ -1,5 +1,6 @@
 import React from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
+import { COLORS } from "../../assets/constants/colors";
 
 const GridItem = ({ item, onSelect }) => {
   return (
@@ -34,6 +35,7 @@ const styles = StyleSheet.create({
     justifyContent: "flex-end",
     alignItems: "flex-end",
     padding: 8,
+    backgroundColor: COLORS.LILAC
   },
   title: {
     fontFamily: "MontereyBold",

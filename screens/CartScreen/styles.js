@@ -22,7 +22,6 @@ export const styles = StyleSheet.create({
   },
   total: {
     fontSize: 18,
-    fontFamily: "Monterey",
     padding: 8,
     color: "#212121",
   },

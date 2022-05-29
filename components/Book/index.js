@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
   bookHeaderContainer: {
     flex: 1,
     flexDirection: "row",
-    backgroundColor: COLORS.PURPLE,
+    backgroundColor: COLORS.LILAC,
   },
   bookDescriptionContainer: {
     flex: 3,
