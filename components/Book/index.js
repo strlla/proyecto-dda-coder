@@ -11,7 +11,7 @@ const Book = ({ book }) => {
   useEffect(() => {
     setMessage("");
   }, [book]);
-  
+
   const handleAddToCart = () => {
     dispatch(addItem(book));
     setMessage("Book added!");
@@ -35,7 +35,7 @@ const Book = ({ book }) => {
       <View style={styles.bookDescriptionContainer}>
         <Text>{book.description}</Text>
       </View>
-      <Text style={{...styles.bookAuthorText, ...styles.message}}>{message}</Text>
+      <Text style={[styles.bookAuthorText, styles.message]}>{message}</Text>
       <View style={styles.bookButtonsContainer}>
         <Button
           title="Add to cart"
@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
     height: 50,
     flexDirection: "column",
     justifyContent: "center",
-    backgroundColor: COLORS.BACKGROUND
+    backgroundColor: COLORS.BACKGROUND,
   },
   bookImage: {
     flex: 1,
@@ -98,8 +98,8 @@ const styles = StyleSheet.create({
     elevation: 3,
   },
   message: {
-    textAlign:  "center"
-  }
+    textAlign: "center",
+  },
 });
 
 export default Book;

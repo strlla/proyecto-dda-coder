@@ -5,12 +5,12 @@ import { confirmCart, removeItem } from "../../store/actions/cart.action";
 import CartItem from "../../components/CartItem";
 import { styles } from "./styles";
 import { COLORS } from "../../assets/constants/colors";
+
 const Cart = ({ navigation }) => {
   const dispatch = useDispatch();
   const items = useSelector((state) => state.cart.items);
   const total = useSelector((state) => state.cart.total);
   const user = useSelector((state) => state.auth.userId);
-  const cart = useSelector((state) => state.cart.cart);
   const [modalVisible, setModalVisible] = useState(false);
 
   const handleDeleteItem = (id) => dispatch(removeItem(id));
@@ -22,6 +22,7 @@ const Cart = ({ navigation }) => {
       }, 1000);
     }
   }, [modalVisible]);
+
   const handleConfirmCart = (async) => {
     setModalVisible(false);
     dispatch(confirmCart(items, total, user, setModalVisible));
@@ -30,6 +31,19 @@ const Cart = ({ navigation }) => {
   const renderItem = ({ item }) => (
     <CartItem item={item} onDelete={handleDeleteItem} />
   );
+
+  if (items.length === 0) {
+    return (
+      <View style={styles.container}>
+        <Text style={styles.textStyle}>Your cart is empty!</Text>
+        <Button
+          title="Find books"
+          color={COLORS.PURPLE}
+          onPress={() => navigation.navigate("BooksStack")}
+        />
+      </View>
+    );
+  }
 
   return (
     <View style={styles.container}>

@@ -60,11 +60,9 @@ export const styles = StyleSheet.create({
   },
   textStyle: {
     fontSize: 16,
-    fontFamily: "MontereyBold",
     padding: 8,
-    color: COLORS.PURPLE,
+    color: COLORS.TEXT,
     textAlign: "center",
-    width: 60,
     alignSelf: "center",
   },
   modalView: {
