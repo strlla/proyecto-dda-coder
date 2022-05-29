@@ -8,7 +8,6 @@ const ImageSelector = (props) => {
 
   const verifyPermissions = async () => {
     const { status } = await ImagePicker.requestCameraPermissionsAsync();
-    console.log(status);
     if (status !== "granted") {
       Alert.alert(
         "Access not granted",

@@ -1,39 +1,25 @@
-import React from 'react';
-import { StyleSheet, FlatList } from 'react-native';
-import GridItem from '../../components/GridItem';
-import { useSelector, useDispatch } from 'react-redux';
-import { selectGenre } from '../../store/actions/genre.action';
+import React from "react";
+import { View, StyleSheet } from "react-native";
+import Genres from "../../components/Genres";
 
-function GenresScreen({navigation}) {
-  const genres = useSelector(state => state.genres.genres);
-  const dispatch = useDispatch();
-
-  const handledSelectedGenre = (genre) => {
-    dispatch(selectGenre(genre.id));
-    navigation.navigate('BookGenre', {
-      name: genre.name
-    })
-  }
-
-  const renderGridItem = ({item}) => <GridItem item={item} onSelected={handledSelectedGenre}/>;
+function GenresScreen({ navigation }) {
+  const onSelectGenre = (id, name) => {
+    console.log("hola")
+    navigation.navigate("Genre", { id, name });
+  };
 
   return (
-    <FlatList 
-      data={genres}
-      keyExtractor={item => item.id}
-      renderItem={renderGridItem}
-      numColumns={2}
-    />
+    <View style={styles.container}>
+      <Genres onSelect={onSelectGenre} />
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-    screen: {
+  container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "#EEE",
   },
 });
-
 
 export default GenresScreen;

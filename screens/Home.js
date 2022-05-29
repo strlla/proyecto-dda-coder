@@ -1,12 +1,35 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { StyleSheet, View, Button } from "react-native";
+import { COLORS } from "../assets/constants/colors";
+import Genre from "../components/Genre";
 
-function Home() {
+function HomeScreen({ navigation }) {
   return (
-    <View>
-      <Text>Home</Text>
+    <View style={styles.container}>
+      <Genre
+        id="0"
+        limit={3}
+        disableInfiniteScroll={true}
+        onSelect={(id) => {
+          navigation.navigate("Book", { id });
+        }}
+      />
+      <Button
+        title="Check the categories"
+        onPress={() => {
+          navigation.navigate("BooksStack");
+        }}
+        color={COLORS.PURPLE}
+      />
     </View>
   );
 }
 
-export default Home;
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: COLORS.BACKGROUND,
+  },
+});
+
+export default HomeScreen;

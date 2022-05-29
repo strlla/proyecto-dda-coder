@@ -2,9 +2,9 @@ import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { MY_THEME } from "../assets/constants/theme";
-import Genres from "../screens/GenresScreen";
-import GenreBookScreen from "../screens/GenreBookScreen";
-
+import GenresScreen from "../screens/GenresScreen";
+import GenreScreen from "../screens/GenreScreen";
+import BookScreen from "../screens/BookScreen";
 const Stack = createNativeStackNavigator();
 
 const BooksNavigator = () => {
@@ -16,13 +16,17 @@ const BooksNavigator = () => {
       >
         <Stack.Screen
           name="BooksStack"
-          component={Genres}
+          component={GenresScreen}
           options={{ title: "Genres", headerShown: false }}
         />
         <Stack.Screen
-          name="BookGenre"
-          component={GenreBookScreen}
+          name="Genre"
+          component={GenreScreen}
           options={({ route }) => ({ title: route.params.name })}
+        />
+        <Stack.Screen
+          name="Book"
+          component={BookScreen}
         />
       </Stack.Navigator>
     </NavigationContainer>
