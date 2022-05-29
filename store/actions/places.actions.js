@@ -21,8 +21,7 @@ export const addPlace = (title, image, location) => {
         "No se han encontrado datos para las coordenadas seleccionadas."
       );
     const address = resData.results[0].formatted_address;
-    console.log(address);
-
+      
     const fileName = image.split("/").pop();
     const Path = FileSystem.documentDirectory + fileName;
 

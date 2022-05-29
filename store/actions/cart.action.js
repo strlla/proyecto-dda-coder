@@ -29,8 +29,7 @@ export const confirmCart = (cart, total, user, setModalVisible) => {
       if (result.name) {
         setModalVisible(true);
       }
-      console.log(result);
-      console.log(result.name);
+      
       dispatch({
         type: COMFIRM_CART,
         cart: result,

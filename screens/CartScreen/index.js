@@ -14,9 +14,6 @@ const Cart = ({ navigation }) => {
   const [modalVisible, setModalVisible] = useState(false);
 
   const handleDeleteItem = (id) => dispatch(removeItem(id));
-  useEffect(() => {
-    console.log(cart);
-  }, [cart]);
 
   useEffect(() => {
     if (modalVisible) {

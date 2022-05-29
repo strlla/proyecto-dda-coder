@@ -4,7 +4,6 @@ import Genres from "../../components/Genres";
 
 function GenresScreen({ navigation }) {
   const onSelectGenre = (id, name) => {
-    console.log("hola")
     navigation.navigate("Genre", { id, name });
   };
 
