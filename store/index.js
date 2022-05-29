@@ -1,13 +1,13 @@
 import { createStore, combineReducers, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
-import GenreReducer from "./reducers/genre.reducer";
-import BooksReducer from "./reducers/books.reducer";
+import CartReducer from "./reducers/cart.reducer";
 import PlacesReducer from "./reducers/places.reducer";
+import AuthReducer from "./reducers/auth.reducer";
 
 const RootReducer = combineReducers({
-  genres: GenreReducer,
-  books: BooksReducer,
   places: PlacesReducer,
+  auth: AuthReducer,
+  cart: CartReducer
 });
 
 export default createStore(RootReducer, applyMiddleware(thunk))

@@ -49,7 +49,6 @@ export const fetchAddress = () => {
 export const deleteAddress = (id) => {
   const promise = new Promise((resolve, reject) => {
     db.transaction((tx) => {
-      console.log(id);
       tx.executeSql(
         "DELETE FROM address WHERE id = ?",
         [id],
